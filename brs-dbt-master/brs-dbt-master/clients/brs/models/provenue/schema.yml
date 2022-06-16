@@ -1,0 +1,46 @@
+version: 2
+models:
+      
+  - name: provenue_contact
+    description: Denormalized Contact with additional filtering for erroneous records
+    columns:
+    - name: contact_id
+      description: system identifier 
+      tests:
+      - not_null
+      - unique
+    # - name: email
+    #   description: Natural key for contacts
+    #   tests:
+    #   - not_null
+    #   - unique 
+
+  - name: provenue_account
+    description: Denormalized Account with additional filtering for erroneous records
+    columns:
+    - name: email
+      description: Natural key for accounts
+      tests:
+      - not_null
+      # - unique
+    - name: account_id
+      description: Business key from ProVenue
+      tests:
+      - not_null
+      - unique
+  
+  - name: provenue_order_line_item
+    columns:
+    - name: order_line_item_id
+      description: Primary key for order_line_item
+      tests:
+      - not_null
+      - unique 
+
+  - name: provenue_order
+    columns:
+    - name: provenue_order_id
+      description: Primary key for order
+      tests:
+      - not_null
+      - unique 

@@ -1,0 +1,234 @@
+version: 2
+models:
+      
+  # - name: tdc__patron_account__latest
+  #   # description: 
+  #   columns:
+  #   - name: account_id
+  #     tests:
+  #         - not_null
+  #         - unique
+     
+
+  # - name: tdc__patron_contact_address__latest
+  #   # description: 
+  #   columns:
+  #   - name: address_id
+  #     tests:
+  #         - not_null
+  #         - unique
+      
+
+  # - name: tdc__patron_contact__latest
+  #   # description: 
+  #   columns:
+  #   - name: contact_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__patron_contact_email__latest
+  #   # description: 
+  #   columns:
+  #   - name: email_id
+  #     tests:
+  #         - unique
+     
+
+  # - name: tdc__patron_contact_phone__latest
+  #   # description: 
+  #   columns:
+  #   - name: phone_id
+  #     tests:
+  #         - not_null
+  #         - unique
+      
+  
+  # - name: tdc__delivery__latest
+  #   # description: 
+  #   columns:
+  #   - name: delivery_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+
+  # - name: tdc__event__latest
+  #   # description: 
+  #   columns:
+  #   - name: event_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__event_seat__latest
+  #   # description: 
+  #   columns:
+  #   - name: event_seat_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__order_line_item__latest
+  #   # description: 
+  #   columns:
+  #   - name: order_line_item_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__package__latest
+  #   # description: 
+  #   columns:
+  #   - name: package_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__buyer_type__latest
+  #   # description: 
+  #   columns:
+  #   - name: buyer_type_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__buyer_type_group__latest
+  #   # description: 
+  #   columns:
+  #   - name: buyer_type_group_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__delivery_method__latest
+  #   # description: 
+  #   columns:
+  #   - name: delivery_method_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__patron_order__latest
+  #   # description: 
+  #   columns:
+  #   - name: order_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__price_scale__latest
+  #   # description: 
+  #   columns:
+  #   - name: price_scale_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__season__latest
+  #   # description: 
+  #   columns:
+  #   - name: season_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__seat__latest
+  #   # description: 
+  #   columns:
+  #   - name: seat_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__section__latest
+  #   # description: 
+  #   columns:
+  #   - name: section_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__ticket__latest
+  #   # description: 
+  #   columns:
+  #   - name: ticket_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__transaction__latest
+  #   # description: 
+  #   columns:
+  #   - name: transaction_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__buyer_type_bt_grp__latest
+  #   # description: 
+  #   columns:
+  #   - name: buyer_type_bt_grp_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  # - name: tdc__patron_trait__latest
+  #   # description: 
+  #   columns:
+  #   - name: patron_trait_id
+  #     tests:
+  #         - not_null
+  #         - unique
+
+  - name: salesforce__accounts__latest
+    # description: 
+    columns:
+    - name: account_id
+      tests:
+          - not_null
+          - unique
+
+  - name: wheelhouse__ticket_details__latest
+    # description: 
+    columns:
+    - name: ticket_id
+      tests:
+          - not_null
+          - unique
+
+  - name: appetize_latest
+    # description: 
+    columns:
+    - name: order_id
+      tests:
+          - not_null
+          - unique
+
+  - name: salesforce__opportunity_products__latest
+    # description: 
+    columns:
+    - name: salesforce_opportunity_product_id
+      tests:
+          - not_null
+          - unique
+    - name: salesforce_opportunity_id
+      tests:
+          - not_null
+
+  - name: salesforce__opportunity_products__test
+    columns:
+    - name: cnt
+      tests:
+          - accepted_values:
+              values: ['0']
+
+  - name: salesforce__users__test
+    columns:
+    - name: cnt
+      tests:
+          - accepted_values:
+              values: ['0']
+         
+        
+      

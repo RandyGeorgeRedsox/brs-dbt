@@ -1,0 +1,2129 @@
+version: 2
+sources:
+  - name: stage
+    description: The stage dataset contains raw data coming in from the various data sources connected via Phase 1 of the integration project.
+    tables:
+
+      - name: tdc__brs__SCAN_FACILITY
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_LIST_LINE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ACCOUNT_AGY_ORG_GRP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_MBRSHP_ADJUST_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__MARKET_APP_FEATURE_PERMS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_MARKET_PERMISSIONS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXTENDED_SEAT_SCAN_AREA
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT
+        description: CDC table
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+        # columns:
+        # - name: PATRON_CONTACT_ID
+        #   description: PK; unique when composite w/ LAST_UPDATED_DATE
+        # - name: LAST_UPDATED_DATE
+        #   description: Timestamp when the record was modified at the source
+        
+
+      - name: tdc__brs__SALES_REP_ASSIGN_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SALES_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: salesforce__brs__contacts
+        columns:
+        - name: column_name
+          description: Short table description
+        freshness: 
+          warn_after: {count: 2, period: day}
+          error_after: {count: 3, period: day}
+        loaded_at_field: IF(LENGTH(NULLIF(LastModifiedDate, 'None')) = 13, TIMESTAMP_MILLIS(CAST(NULLIF(LastModifiedDate, 'None') AS INT64)) , TIMESTAMP(NULLIF(LastModifiedDate, 'None'))) 
+
+      - name: tdc__brs__PACKAGE_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__AGENCY
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: dynamics__2013__account
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_APP_FEATURE_PERMS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__HOLD_CODE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT_EMAIL_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__DELIVERY_METHOD
+        columns:
+        - name: column_name
+          description: Short table description
+        
+
+      - name: tdc__brs__HOLD_CODE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXTENDED_SEAT_GROUP_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SEASON
+        columns:
+        - name: column_name
+          description: Short table description
+        
+
+      - name: tdc__brs__SERVICE_CHARGE_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT_ASSOCIATION_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXT_SEAT_DEF_PRICE_SCALE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_RESULT_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT_PROFILE_MAPPING
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_REQUEST
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__DELIVERY_REFUND_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_DATE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_TRAIT
+        columns:
+        - name: column_name
+          description: Short table description
+        
+      - name: tdc__brs__BUYER_TYPE_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+        
+
+      - name: tdc__brs__PACKAGE_REQUEST_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SECTION_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__ORDER_LINE_ITEM
+        columns:
+        - name: column_name
+          description: Short table description
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: CREATED_DATE
+
+      - name: tdc__brs__PACKAGE_LIST
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SERVICE_CHARGE_CLASS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT_DATA_CAPTURE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_LIST_ITEM_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_REQUEST_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_SALES_REP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TICKET
+        columns:
+        - name: column_name
+          description: Short table description
+        # freshness: 
+        #   warn_after: {count: 36, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+
+      - name: tdc__brs__SCAN_RESET_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ASSOCIATION_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_DEVICE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_GROUP_EVENT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TICKET_PRINT_HEADER
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_ACCESS_HOLD_CODE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SALES_REP_PHONE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_INVENTORY_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_PROMOTION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT_FLASH_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_STATUS_INV_MAP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT_EMAIL
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+        # columns:
+        # - name: PATRON_CONTACT_EMAIL_ID
+        #   description: PK; unique as composite with LAST_UPDATED_DATE
+        # - name: LAST_UPDATED_DATE
+        #   description: Timestamp record updated in the source.
+
+      - name: tdc__brs__PATRON_ACCOUNT_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXTENDED_SEAT_MAP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SEASON_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TICKET_EXTENDED_SEAT_DEF
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_ORDER_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SECTION_SECT_GRP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_GROUP_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__HOLD_CODE_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRANSACTION_CONTENTS_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SALES_REP_SUB_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_PACKAGE_LIST
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__ORDER_TRXN_ASSOC_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXTENDED_SEAT_CONFIG
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_CHANGE_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__INVENTORY_TRANSACTION_SEAT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__DELIVERY_FORWARD_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_SCALE_MAP_SEAT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_MEDIA_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SEATING_AREA_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SALES_REP_EMAIL
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SECTION
+        columns:
+        - name: column_name
+          description: Short table description
+       
+
+      - name: tdc__brs__PACKAGE_LIST_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: dynamics__365__account
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT_FIELD_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT_PHONE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_PROPERTY
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SEATING_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__DELIVERY_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_ORDER_ORIGIN
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXT_SEAT_DEF_SECTION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__MARKET_OFFER_XFER_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SERVICE_CHARGE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT_ADDRESS_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_KEYWORD
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ASSOCIATION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_SUBSCRIBER_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_NOTE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_LINE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SERVICE_REP_REQUIRED_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_STRUCTURE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__VENUE_CONFIG_EXSEAT_CONFIG
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__VENUE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXTENDED_SEAT_MAP_SEAT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__INVENTORY_TRXN_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TICKET_PRINT_SCAN
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__BUYER_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+       
+
+      - name: tdc__brs__PATRON_MBRSHP_ACTY_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT_ADDRESS
+        columns:
+        - name: column_name
+          description: Short table description
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+
+
+      - name: tdc__brs__PRICE_SCALE
+        columns:
+        - name: column_name
+          description: Short table description
+        
+
+      - name: tdc__brs__EXTENDED_SEAT_DEF_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_POINT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TICKET_DELIVERY
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_KEYWORD
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_CLASS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TICKET_DELIVERY_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__MARKET_OFFER_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__BUYER_TYPE_NOTE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SALES_REP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_AREA
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_CAPACITY
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_STRUCT_SCALE_CFG
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_SCALE_PS_GRP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__VENUE_CONFIG_SEAT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SCAN_RESULT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_ACCESS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_LIST_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_RUN
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__DELIVERY
+        columns:
+        - name: DELIVERY_ID
+          description: Short table description
+        # freshness: 
+        #   warn_after: {count: 36, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+        
+
+      - name: tdc__brs__ORDER_TRANSACTION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_RUN_KEYWORD
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT
+        columns:
+        - name: column_name
+          description: Short table description
+       
+
+      - name: tdc__brs__TRAIT_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_TRUE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ACCOUNT_LINK_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT_DATA_MERGE_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRANSACTION
+        columns:
+        - name: column_name
+          description: Short table description
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+
+      - name: tdc__brs__PRICE_STRUCT_BUYER_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_MBRSHP_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TRAIT_GROUP_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__MARKET_OFFER
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_SEAT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SECONDARY_ORGANIZATION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ORDER
+        columns:
+        - name: column_name
+          description: Short table description
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+
+      - name: tdc__brs__PACKAGE_LIST_LINE_SEAT
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SEAT
+        columns:
+        - name: column_name
+          description: Short table description
+       
+
+      - name: tdc__brs__TRAIT_PROFILE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__ORDER_NOTE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_CONTACT_PHONE
+        columns:
+        - name: column_name
+          description: Short table description
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+
+
+      - name: tdc__brs__SALES_REP_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ACCOUNT_LINK
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SECTION_SCAN_AREA
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__INVENTORY_TRANSACTION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_LIST_ITEM
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_MBRSHP_ACTY_ADJUST
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXTENDED_SEAT_DEF_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SERVICE_CHARGE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__VTDC_REFRESH_STATUS_HISTORY
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SERVICE_CHARGE_ITEM
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__MARKET_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_PROMOTION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__BUYER_TYPE_SCAN_AREA
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_SEAT_CALC_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: dynamics__2016__account
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EVENT_CATEGORY
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: salesforce__brs__accounts
+        columns:
+        - name: column_name
+          description: Short table description
+        freshness: 
+          warn_after: {count: 2, period: day}
+          error_after: {count: 3, period: day}
+        loaded_at_field: IF(LENGTH(NULLIF(LastModifiedDate, 'None')) = 13, TIMESTAMP_MILLIS(CAST(NULLIF(LastModifiedDate, 'None') AS INT64)) , TIMESTAMP(NULLIF(LastModifiedDate, 'None'))) 
+
+      - name: salesforce__brs__opportunities
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: salesforce__brs__opportunity_products
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: salesforce__brs__event_inventories
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: salesforce__brs__users
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: salesforce__brs__members
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: salesforce__brs__assets
+        columns:
+        - name: column_name
+          description: Short table description
+      
+      - name: salesforce__brs__fenway_events
+        columns:
+        - name: column_name
+          description: default
+
+      - name: salesforce__brs__products
+        columns:
+        - name: column_name
+          description: default
+
+      - name: salesforce__brs__returned_inventories
+        columns:
+        - name: column_name
+          description: default
+
+      - name: tdc__brs__EXT_SEAT_DEF_BUYER_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ACCOUNT_NON_DUPLICATE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PATRON_ACCOUNT
+        columns:
+        - name: PATRON_ACCOUNT_ID
+          description: Primary key
+        # freshness: 
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 48, period: hour}
+        # loaded_at_field: LAST_UPDATED_DATE
+
+
+      - name: tdc__brs__EVENT_COUPON_ITEM
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__BUYER_TYPE_BT_GRP
+        columns:
+        - name: column_name
+          description: Short table description
+        
+        
+      - name: tdc__brs__TRANSACTION_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_SCALE_SCAN_AREA
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__EXTENDED_SEAT_DEF
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_SCALE_GROUP
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SALES_REP_REQUIRED_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__TICKET_PRINT_DETAIL
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PRICE_STRUCT_PRICE_SCALE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__DELIVERY_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__PACKAGE_CLASS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__MARKET_OFFER_TYPE
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__SEASON_STATUS
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: tdc__brs__ACCOUNT_DATA_PROTECTION
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: appetize_orders
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: wheelhouse__customer_summary_agg
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: wheelhouse__ticket_details_tdc
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: wheelhouse__forms2_mapping
+        columns:
+        - name: column_name
+          description: Short table description
+
+  - name: rotio_lab
+    tables:
+      - name: appetize_test
+        columns:
+        - name: column_name
+          description: Short table description
+
+  - name: audience_exports
+    tables:
+
+      - name: snapshots_106_snapshots
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: snapshots_111_snapshots
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: snapshots_112_snapshots
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: mlb_audience_interface__base
+        columns:
+        - name: column_name
+          description: Short table description
+
+      - name: audience_snapshots_all
+        columns:
+        - name: column_name
+          description: Short table description
+        
+  - name: wheelhouse_red_sox #dataset_name
+    database: mlb-dataeng-prod #project_name in BQ
+    tables:
+      - name: forms2_detail
+        description: None
+        
+      - name: forms2_detail_latest
+        description: Included but not used; opt for forms2_detail instead
+
+      - name: forms2_mapping
+        # description:  
+
+      - name: customer_summary_agg
+        # description: 
+
+      - name: one_view
+        description: Data Product from MLB that describes the fan holistically across all interactions with baseball and allows easy segmentation
+
+      - name: all_interactions_vw
+        # description:
+      
+      - name: ticket_details_events_tdc
+        # description:
+
+      - name: ticket_details_tdc
+        # description:
+
+      - name: stubhub_details
+        # description:
+
+      - name: stubhub_details_net
+        # description: 
+      
+      - name: registered_user_full
+        # description:
+
+      - name: registered_user_incremental
+          
+      - name: email_campaign_metadata
+        # description:
+
+      - name: email_campaign_response_detail
+        # description:
+
+      - name: stubhub_listings
+        # description:
+
+      - name: baseball_game_master
+        # description:
+
+      - name: acxiom_demographics
+        # description:
+
+      - name: ticket_scan_tdc
+        # description:
+
+      - name: ticket_details_packages_tdc
+        # description:
+
+      - name: ticket_forwarding
+        # description:
+
+      - name: mlbtv_usage
+        # description:
+
+      - name: ballpark_views
+        # description:
+
+      - name: commerce_billable_forms
+        # description:
+
+      - name: paid_ads_lead_submissions
+        # description:
+
+      - name: shop_sales
+        # description:
+
+      - name: mlbtv_sales_full
+        # description:
+
+      - name: zetahub_events
+
+      - name: qualtrics_voc_post_attendance_2021_full
+
+      - name: qualtrics_responses_full
+
+      - name: qualtrics_voc_post_purchase_2021_full
+
+      - name: qualtrics_voc_post_purchase_2022_full
+
+      - name: qualtrics_voc_post_attendance_2022_full
+
+  - name: fortress__stage
+    tables:
+      - name: kidnation
+        columns:
+        - name: column_name
+          description: Short table description
+
+  
+  - name: Fenway_Section_Map
+    database: brs-data-dev
+    tables:
+      - name: Seat_Map
+        description: None
+
+  - name: audience
+    tables:
+
+      - name: user_audience_map_snapshot
+        columns:
+        - name: column_name
+          description: Short table description
+
+  - name: wheelhouse_red_sox_ticketing #dataset_name
+    database: mlb-pvrepl-redsox-prod-2e10 #project_name in BQ
+    tables:
+      - name: patron_order
+        description: None
+
+      - name: scan_facility
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_list_line
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_account_agy_org_grp
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_mbrshp_adjust_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: market_app_feature_perms
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_market_permissions
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: extended_seat_scan_area
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact
+        description: cdc table
+        columns:
+        - name: patron_contact_id
+          description: pk; unique when composite w/ last_updated_date
+        - name: last_updated_date
+          description: timestamp when the record was modified at the source
+        
+
+      - name: sales_rep_assign_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: sales_type
+        columns:
+        - name: column_name
+          description: short table description
+
+
+      - name: package_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: agency
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: dynamics__2013__account
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_app_feature_perms
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: hold_code
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact_email_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: delivery_method
+        columns:
+        - name: column_name
+          description: short table description
+        
+
+      - name: hold_code_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: extended_seat_group_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: season
+        columns:
+        - name: column_name
+          description: short table description
+        
+
+      - name: service_charge_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait_association_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ext_seat_def_price_scale
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_result_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait_profile_mapping
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_request
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: delivery_refund_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_date_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_trait
+        columns:
+        - name: column_name
+          description: short table description
+        
+      - name: buyer_type_group
+        columns:
+        - name: column_name
+          description: short table description
+        
+
+      - name: package_request_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: section_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: order_line_item
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_list
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: service_charge_class
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait_data_capture_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_list_item_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_request_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_sales_rep
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ticket
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_reset_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_association_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_device
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_group_event
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ticket_print_header
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_access_hold_code
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: sales_rep_phone
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_inventory_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_promotion
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait_flash_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_status_inv_map
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact_email
+        columns:
+        - name: patron_contact_email_id
+          description: pk; unique as composite with last_updated_date
+        - name: last_updated_date
+          description: timestamp record updated in the source.
+
+      - name: patron_account_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: extended_seat_map
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: season_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ticket_extended_seat_def
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_order_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: section_sect_grp
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_group_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: hold_code_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: transaction_contents_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: sales_rep_sub_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_package_list
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: order_trxn_assoc_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: extended_seat_config
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_change_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: inventory_transaction_seat
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: delivery_forward_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_scale_map_seat
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_media_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: seating_area_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: sales_rep_email
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: section
+        columns:
+        - name: column_name
+          description: short table description
+       
+
+      - name: package_list_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: dynamics__365__account
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait_field_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact_phone_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_property
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: seating_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: delivery_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_order_origin
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ext_seat_def_section
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: market_offer_xfer_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: service_charge_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact_address_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_keyword
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_association
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_subscriber_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_note
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_line
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: service_rep_required_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_structure
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: venue_config_exseat_config
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: venue
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: extended_seat_map_seat
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: inventory_trxn_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ticket_print_scan
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: buyer_type
+        columns:
+        - name: column_name
+          description: short table description
+       
+
+      - name: patron_mbrshp_acty_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact_address
+        columns:
+        - name: column_name
+          description: short table description
+
+
+      - name: price_scale
+        columns:
+        - name: column_name
+          description: short table description
+        
+
+      - name: extended_seat_def_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_point
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ticket_delivery
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_keyword
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_class
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ticket_delivery_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: market_offer_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: buyer_type_note_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: sales_rep
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_area
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_capacity
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_struct_scale_cfg
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_scale_ps_grp
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: venue_config_seat
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: scan_result
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_access
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_list_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_run
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: delivery
+        columns:
+        - name: delivery_id
+          description: short table description
+        
+
+      - name: order_transaction
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_run_keyword
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event
+        columns:
+        - name: column_name
+          description: short table description
+       
+
+      - name: trait_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_true_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_account_link_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait_data_merge_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: transaction
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_struct_buyer_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_mbrshp_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: trait_group_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: market_offer
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_seat
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: secondary_organization
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_list_line_seat
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: seat
+        columns:
+        - name: column_name
+          description: short table description
+       
+
+      - name: trait_profile
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: order_note
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_contact_phone
+        columns:
+        - name: column_name
+          description: short table description
+
+
+      - name: sales_rep_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_account_link
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: section_scan_area
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: inventory_transaction
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_list_item
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_mbrshp_acty_adjust
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: extended_seat_def_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: service_charge
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: vtdc_refresh_status_history
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: service_charge_item
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: market_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_promotion
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: buyer_type_scan_area
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_seat_calc_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: dynamics__2016__account
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: event_category
+        columns:
+        - name: column_name
+          description: short table description
+
+
+
+      - name: ext_seat_def_buyer_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_account_non_duplicate
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: patron_account
+        columns:
+        - name: patron_account_id
+          description: primary key
+
+
+      - name: event_coupon_item
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: buyer_type_bt_grp
+        columns:
+        - name: column_name
+          description: short table description
+        
+        
+      - name: transaction_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_scale_scan_area
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: extended_seat_def
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_scale_group
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: sales_rep_required_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: ticket_print_detail
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: price_struct_price_scale
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: delivery_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: package_class
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: market_offer_type
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: season_status
+        columns:
+        - name: column_name
+          description: short table description
+
+      - name: account_data_protection
+        columns:
+        - name: column_name
+          description: short table description

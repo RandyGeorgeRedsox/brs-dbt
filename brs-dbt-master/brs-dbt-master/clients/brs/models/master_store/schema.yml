@@ -1,0 +1,99 @@
+version: 2
+models:
+  - name: master_store_contact
+    columns:
+    - name: pv_contact_id
+      description: Patron provenue contact ID
+    - name: pv_account_id
+      description: Patron provenue account ID
+    - name: sf_contact_id
+      description: Patron salesforce contact ID
+    - name: _composite_key
+      description: Primary Key of master store
+      tests:
+      - unique
+      - not_null
+    - name: is_routed_to_salesforce
+      description: Flag of whether patron is being routed to salesforce, based on is_active flag in mdm contact
+    - name: lapsed_group_buyer
+      description: Patron was in group buyer segment in previous season, but not current season  
+    - name: current_season_ticket_holder
+      description: Patron is in season ticket holder segment for current season based on Tickets.com transactions
+    - name: lapsed_season_ticket_holder
+      description: Patron was in season ticket holder segment in previous season, but not current season  
+    - name: current_partial_plan_buyer
+      description: Patron is in partial plan buyer segment for current season based on Tickets.com transactions
+    - name: lapsed_partial_plan_buyer
+      description: Patron was in partial plan buyer segment in previous season, but not current season  
+    - name: current_group_buyer
+      description: Patron is in group buyer segment for current season based on Tickets.com transactions
+    - name: has_reserved_season_tickets
+      description: Boolean value for current season ticket reservation holder
+    - name: pv_country
+      description: Patron country sourced from Tickets.com via provenue
+    - name: city
+      description: Patron city sourced from Tickets.com via provenue
+    - name: state
+      description: Patron state sourced from Tickets.com via provenue
+    - name: zip
+      description: Patron zip code sourced from Tickets.com via provenue
+    - name: total_lifetime_spend
+      description: Patron lifetime spending
+    - name: current_year_package_tickets_spend
+      description: Patron package tickets spending in current year
+    - name: current_year_group_tickets_spend
+      description: Patron group tickets spending in current year
+    - name: current_year_single_tickets_spend
+      description: Patron single tickets spending in current year
+    - name: last_year_total_tickets_spend
+      description: Patron total tickets spending in current year
+    - name: days_since_last_interaction
+      description: Days interval of patron's interaction since last time
+    - name: shop_spend
+      description: Patron shop spending
+    - name: commerce_spend
+      description: Patron commerce spending
+    - name: mlbtv_spend
+      description: Patron MLB TV spending
+    - name: oneview_spend
+      description: Patron total spending. Sum of shop, commerce and mlb tv spending
+    - name: total_tickets_purchased
+      description: Total number of primary market tickets purchased by patron
+    - name: company
+      description: Patron company
+    - name: email
+      description: Patron email sourced from Tickets.com via wheelhouse and provenue, synced with Salesforce Contact
+    - name: first_name
+      description: Patron first name
+    - name: is_new_season_ticket_inquiries_lead
+      description: Patron is a lead captured from new season ticket inquiries form
+    - name: last_name
+      description: Patron last name
+    - name: is_group_tickets_lead
+      description: Patron is a lead captured from group ticket form
+    - name: is_fenway_premium_suites_lead
+      description: Patron is a lead captured from fenway premium suites form
+    - name: is_mlb_brochure_download_lead
+      description: Patron is a lead captured from downloading Red Sox Group Brochure
+    - name: games_purchased_by_year
+      description: Number of games purchased via primary market by year
+    - name: tickets_purchased_by_year
+      description: Number of primary market tickets purchased by patron by year
+    - name: is_designated_likely_broker
+      # description: 
+    - name: is_designated_sponsor
+      # description: 
+    - name: is_designated_mlb
+      # description: 
+    - name: is_designated_trade
+      # description: 
+    - name: is_designated_internal
+      # description: 
+  - name: master_store_ticket_transaction
+    columns:
+    - name: ticket_id
+      tests:
+      - unique
+      - not_null
+    
+

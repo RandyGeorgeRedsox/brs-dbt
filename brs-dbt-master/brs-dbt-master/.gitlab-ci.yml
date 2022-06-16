@@ -1,0 +1,46 @@
+image: docker:19.03.8
+
+services:
+  - docker:19.03.12-dind
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ""
+
+build:
+  stage: build
+  only:
+      - master
+  before_script:
+      - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+      - /bin/sh -c ./build_images.sh
+
+pages:
+  image: flywheelsoftware/python-dbt-gcloud:0.20.0
+  script:
+      - mkdir -p /root/.ssh
+      - chmod 0700 /root/.ssh
+      - ssh-keyscan gitlab.com > /root/.ssh/known_hosts
+      - echo "$BITBUCKET_SSH_PRIV_KEY" > /root/.ssh/id_rsa
+      - echo "$BITBUCKET_SSH_PUB_KEY" > /root/.ssh/id_rsa.pub
+      - chmod 600 /root/.ssh/id_rsa
+      - chmod 600 /root/.ssh/id_rsa.pub
+      - cd clients/brs
+      - touch $(pwd)/profiles/key-file.json
+      - echo $BRS_API_KEY >> profiles/key-file.json
+      - export DBT_PROFILES_DIR=$(pwd)/profiles
+      - export KEY_FILE=$(pwd)/profiles/key-file.json
+      - export PROJECT_ID=$BRS_PROJECT_ID
+      - echo $(pwd)/profiles/key-file.json
+      - dbt deps --profile=brs
+      - dbt docs generate --profile=brs --profiles-dir $(pwd)/profiles --target=prod --vars="{\"snapshot_date\":\"\"}"
+      - cd ../../
+      - mkdir -p public/brs/
+      - cp -r $(pwd)/clients/brs/tmp/target/* public/brs/
+
+  artifacts:
+      paths:
+      - public
+  only:
+      - master

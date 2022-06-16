@@ -1,0 +1,5 @@
+packages:
+  - package: fishtown-analytics/dbt_utils
+    version: 0.7.0
+  - git: git@gitlab.com:flywheelsoftware/dbt-campaign-evaluation.git
+    revision: v2.0.9

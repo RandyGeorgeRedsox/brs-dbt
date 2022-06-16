@@ -1,0 +1,12 @@
+env/
+target/
+dbt_modules/
+tmp/
+logs/
+.DS_Store
+# brs specific
+clients/brs/.vscode/
+*.ipynb
+clients/brs/.tmp/
+.tmp/
+#clients/brs/tmp/dbt-logs/dbt.log

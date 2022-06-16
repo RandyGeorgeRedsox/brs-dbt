@@ -1,0 +1,61 @@
+version: 2
+models:
+      
+  - name: 1_rfmd_metrics
+    # description: 
+    columns:
+    - name: pv_account_id
+      # description: 
+      tests:
+      - not_null
+      - unique
+    
+  - name: 2_rfmd_quartiles
+    # description: 
+    columns:
+    - name: calculation_date
+      # description: 
+      tests:
+      - not_null
+      - unique
+
+  - name: 3_rfmd_segments
+    # description: 
+    columns:
+    - name: pv_account_id
+      # description: 
+      tests:
+      - not_null
+      - unique
+
+  - name: 4_rfmd_histos_age
+    # description: 
+    columns:
+    - name: pv_account_id
+      # description: 
+
+
+  - name: 4_rfmd_histos_frequency
+    # description: 
+    columns:
+    - name: pv_account_id
+      # description: 
+     
+
+  - name: 4_rfmd_histos_monetary
+    # description: 
+    columns:
+    - name: pv_account_id
+      # description: 
+
+  - name: 4_rfmd_histos_recency
+    # description: 
+    columns:
+    - name: pv_account_id
+      # description: 
+
+  - name: 5_rfmd_histos
+    # description: 
+    columns:
+    - name: pv_account_id
+      # description: 

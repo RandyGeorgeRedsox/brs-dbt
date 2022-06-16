@@ -1,0 +1,26 @@
+version: 2
+models:
+      
+  - name: salesforce_contact
+    # description: 
+    columns:
+    - name: email
+      tests:
+      - not_null
+      # - unique
+  
+  - name: salesforce_account
+    # description:
+    columns:
+    - name: account_id
+      description: Business key
+      tests:
+      - not_null
+      # - unique
+
+    - name: provenue_account_id
+      description: Business key from ProVenue; could be NULL, but should not be duplicated on active accounts
+      # tests:
+      # - unique
+    
+ 

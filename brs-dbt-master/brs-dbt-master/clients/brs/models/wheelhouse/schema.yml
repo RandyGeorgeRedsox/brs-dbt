@@ -1,0 +1,28 @@
+version: 2
+models:    
+  - name: wheelhouse__customer_summary_agg
+    # description: 
+    columns:
+    - name: email
+      tests:
+          - not_null
+          - unique
+
+  # - name: wheelhouse_contact
+  #   # description: 
+  #   columns:
+  #   - name: email
+  #     tests:
+  #         - not_null
+  #         - unique
+  
+  - name: last_ticket_purchase
+    # description: 
+    columns:
+    - name: email
+      tests:
+          - not_null
+          - unique
+
+
+  

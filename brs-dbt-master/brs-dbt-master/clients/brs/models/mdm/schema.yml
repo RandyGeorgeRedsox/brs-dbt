@@ -1,0 +1,29 @@
+version: 2
+models:
+  - name: account
+    description: MDM Account Entity
+    columns:
+    - name: _composite_key
+      tests:
+      - unique
+      - not_null
+  
+  - name: contact
+    columns:
+    - name: _composite_key
+      tests:
+      - not_null
+
+  - name: order
+    columns:
+    - name: provenue_order_id
+      tests:
+        - not_null
+        - unique
+  
+  - name: order_line_item
+    columns:
+    - name: order_line_item_id
+      tests:
+        - not_null
+        - unique

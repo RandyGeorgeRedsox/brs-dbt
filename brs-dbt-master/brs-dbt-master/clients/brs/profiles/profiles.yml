@@ -1,0 +1,25 @@
+# For more information on how to configure this file, please see:
+# https://docs.getdbt.com/docs/profile
+brs:
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: fake_creds.json
+      project: fake_project
+      dataset: dbt_dev
+      threads: 1
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+    prod:
+      type: bigquery
+      method: service-account
+      keyfile: "{{ env_var('KEY_FILE') }}"
+      project: "{{ env_var('PROJECT_ID') }}"
+      dataset: dbt_prod
+      threads: 10
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+  target: dev

@@ -1,0 +1,138 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: brs
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'brs'
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+log-path: ./tmp/dbt-logs
+modules-path: ./tmp/dbt_modules
+target-path: ./tmp/target  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - ./tmp/target
+    - ./tmp/dbt_modules
+
+vars:
+# campaign_evaluation:
+  start_date: '2021-01-01'
+  snapshot_delta_db: brs-clouddata-prod
+  snapshot_delta_schema: flywheel_system
+  snapshot_delta_prefix: SNAPSHOTTING_AUDIENCE_%_DELTA_HISTORY
+  user_id_field_name: client_customer_id
+  #custom_user_audience_filter: 
+  output_schema: flywheel_system
+  metric_schema: metrics
+  metric_database: brs-clouddata-prod
+  #metrics: [{'name': 'revenue', 'type': 'aggregation', 'unit': 'currency', 'exclude_types': '', 'significance_tests': 'Mann Whitney'}]
+  metrics: [{'name': 'ballpark_login', 'type': 'aggregation', 'unit': 'count', 'exclude_types': '', 'significance_tests': ''},
+          {'name': 'email_open', 'type': 'aggregation', 'unit': 'count', 'exclude_types': '', 'significance_tests': ''},
+          {'name': 'mlbtv_watch', 'type': 'aggregation', 'unit': 'count', 'exclude_types': '', 'significance_tests': ''},
+          {'name': 'ticket_spend', 'type': 'aggregation', 'unit': 'currency', 'exclude_types': '', 'significance_tests': ''},
+          {'name': 'ticket_buyer_count', 'type': 'aggregation', 'unit': 'count', 'exclude_types': '', 'significance_tests': ''},
+          {'name': 'ticket_sold_count', 'type': 'aggregation', 'unit': 'count', 'exclude_types': '', 'significance_tests': ''},
+          {'name': 'total_spend', 'type': 'aggregation', 'unit': 'currency', 'exclude_types': '', 'significance_tests': ''}      
+          ]
+  'dbt_date:time_zone': 'America/New_York'
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+seeds:
+  +schema: seed_data
+
+# In this example config, we tell dbt to build all models in the example/ directory
+# as tables. These settings can be overridden in the individual model files
+# using the `{{ config(...) }}` macro.
+models:
+  # enable docs persistence for all models
+  +persist_docs:
+    relation: true
+    columns: true
+  
+  brs:
+    stage:
+      schema: stage
+      base:
+        materialized: ephemeral
+        description: This dataset contains base tables created from sources
+      latest:
+        materialized: table
+
+    provenue:
+      schema: provenue
+      materialized: table
+      description: Denormalized ProVenue entities derived from "latest" models
+
+    salesforce:
+      schema: salesforce
+      materialized: table
+      description: Cleaned/transformed Salesforce object data
+    
+    wheelhouse:
+      schema: wheelhouse
+      materialized: table
+      description: Cleaned/transformed Wheelhouse data
+
+    audience:
+      schema: audience
+      base:
+        materialized: ephemeral
+        description: This dataset contains base tables created from sources in audience
+
+    export:
+      schema: export
+      materialized: table
+
+    audience_exports:
+      schema: audience_exports
+      materialized: table
+
+    redsox_6_audience_exports:
+      schema: redsox_6_audience_exports
+      materialized: table
+
+    mdm:
+      # enabled: False
+      schema: mdm
+      materialized: table
+
+    master_store:
+      # enabled: False
+      schema: master_store
+    
+    reporting:
+      schema: reporting
+
+    rfmd:
+      # enabled: False
+      schema: rfmd
+
+    evaluation:
+      schema: evaluation
+      materialized: ephemeral
+
+    # vendor_demand_analytics:
+    #   schema: vendor_demand_analytics
+    #   materialized: table
+
+    salesforce_validation:
+      schema: salesforce_validation
+      materialized: table
+    metrics:
+      schema: metrics
+   
+
+      
+
+   
